@@ -378,19 +378,19 @@ document.addEventListener('DOMContentLoaded', () => {
     "category": "Accidental Correctness (Accidental Correctness Ratio / ACR)",
     "categoryKey": "acr",
     "videoSrc": "assets/videos/qual_acr_state_machine.mp4",
-    "domain": "State Machine (N=1, F=2.0Hz, Seed=2)",
+    "domain": "State Machine (N=12, F=0.5Hz, Seed=3)",
     "prompt": "How many state transitions occurred in the video?",
-    "gtCount": "1",
-    "gtTimestamps": "Executable Timestamps: [\"00:20.62\"]",
-    "gtTrace": "### Scene Description\nVisual state machine transitions at frequency 2.0 Hz.\n- At 20.62s: Transitioned from State C to State A (count=1)\n\n### Step 1: Track State Transitions\nTotal state transitions detected: 1.\n\n\\boxed{1}",
+    "gtCount": "12",
+    "gtTimestamps": "Executable Timestamps: [\"00:01.32\", \"00:03.32\", \"00:05.32\", \"00:07.32\", \"00:09.32\", \"00:11.32\", \"00:13.32\", \"00:15.32\", \"00:17.32\", \"00:19.32\", \"00:21.32\", \"00:23.32\"]",
+    "gtTrace": "### Scene Description\nVisual state machine transitions at frequency 0.5 Hz.\n- At 1.32s: Transitioned from State C to State A (count=1)\n- At 3.32s: Transitioned from State A to State C (count=2)\n- At 5.32s: Transitioned from State C to State D (count=3)\n- At 7.32s: Transitioned from State D to State B (count=4)\n- At 9.32s: Transitioned from State B to State D (count=5)\n- At 11.32s: Transitioned from State D to State A (count=6)\n- At 13.32s: Transitioned from State A to State B (count=7)\n- At 15.32s: Transitioned from State B to State A (count=8)\n- At 17.32s: Transitioned from State A to State D (count=9)\n- At 19.32s: Transitioned from State D to State C (count=10)\n- At 21.32s: Transitioned from State C to State A (count=11)\n- At 23.32s: Transitioned from State A to State D (count=12)\n\n### Step 1: Track State Transitions\nTotal state transitions detected: 12.\n\n\\boxed{12}",
     "modelName": "GEMINI 3.6 FLASH PREDICTION",
-    "traceF1": "33.3%",
-    "precision": "20.0%",
-    "recall": "100.0%",
-    "predAnswer": "1",
+    "traceF1": "0.0%",
+    "precision": "0.0%",
+    "recall": "0.0%",
+    "predAnswer": "12",
     "predStatus": "correct",
-    "modelOutput": "1. **Step-by-Step Event Ledger**\n\n* **00:00 - 00:19**: The video remains in State C (Star shape).\n* **00:20**: The object transitions from State C (Star) to State A (Circle), bringing the running count of state transitions to 1.\n* **00:20 - 00:23**: The object remains in State A with no further changes.\n\n2. **Final Answer**\n\n\\boxed{1}",
-    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (1), but its reported trace was incomplete/flawed (Trace F1: 33.3%), demonstrating a lucky guess or compensating errors."
+    "modelOutput": "1. Step-by-Step Event Ledger\nThe sequence starts in State C at 00:00 and periodically changes state every two seconds across the timeline, transitioning between States A, B, C, and D for a total of 12 state changes.\n\n2. Final Answer\n\\boxed{12}",
+    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (12), but completely failed to generate a step-by-step timestamped event ledger (Trace F1: 0.0%), achieving accidental correctness through high-level estimation without trace verification."
   }
 ];
 
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (counterEl) counterEl.innerText = `Example ${currentFilteredPointer + 1} of ${filteredIndices.length}`;
     
     if (videoPlayerEl) {
-      videoPlayerEl.src = data.videoSrc + '?v=20260802_v22';
+      videoPlayerEl.src = data.videoSrc + '?v=20260802_v26';
       videoPlayerEl.load();
       videoPlayerEl.play().catch(() => {});
     }
