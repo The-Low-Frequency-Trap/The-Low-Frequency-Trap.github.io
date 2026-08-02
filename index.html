@@ -1,48 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The Low-Frequency Trap: Video--Language Models Fail at Simple Event Bookkeeping.">
-  <title>The Low-Frequency Trap</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Low-Frequency Trap: Video–Language Models Fail at Simple Event Bookkeeping. Trace-Grounded Parametric Profiling of Video-Language Models under Varying Event Count and Frequency.">
+  <title>The Low-Frequency Trap: Video–Language Models Fail at Simple Event Bookkeeping</title>
+  
+  <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="style.css">
+  
+  <!-- JavaScript Script -->
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <main>
-    <section class="hero" aria-labelledby="paper-title">
-      <div class="topline"><span class="eyebrow">EventLapse · 2026</span><span class="status">Project page</span></div>
-      <p class="kicker">Video–language model evaluation</p>
-      <h1 id="paper-title">The Low-<br>Frequency Trap</h1>
-      <p class="subtitle">Video–Language Models Fail at Simple Event Bookkeeping</p>
-      <p class="authors"><span>Sarvesh Baskar<sup>*</sup></span>, <span>Zikui Cai<sup>*</sup></span>, <span>Shayan Shabihi<sup>*</sup></span>, <span>Anirudh Satheesh</span>, <span>Muhammad R. Islam</span>, <span>Udari Madhushani Sewwog</span>, <span>Tom Goldstein</span>, <span>Furong Huang</span></p>
-      <p class="affiliations"><span>University of Maryland</span><i></i><span>Scale AI</span></p>
-      <p class="equal"><sup>*</sup> Equal contribution</p>
-      <nav class="links" aria-label="Project links">
-        <a class="button button-primary" href="#" aria-label="arXiv link coming soon">arXiv <span>↗</span><small>Coming soon</small></a>
-        <a class="button" href="#" aria-label="GitHub link coming soon">Code <span>↗</span><small>Coming soon</small></a>
-        <a class="button" href="#" aria-label="Hugging Face dataset link coming soon">Dataset <span>↗</span><small>Coming soon</small></a>
-      </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>The Low-Frequency Trap: Video–Language Models Fail at Simple Event Bookkeeping</h1>
+      <p class="hero-subtitle">Trace-Grounded Parametric Profiling under Varying Event Count and Frequency</p>
+      
+      <div class="authors">
+        <a class="author" href="#" target="_blank">Sarvesh Baskar<sup>1*</sup></a>
+        <a class="author" href="#" target="_blank">Zikui Cai<sup>1*</sup></a>
+        <a class="author" href="#" target="_blank">Shayan Shabihi<sup>1*</sup></a>
+        <a class="author" href="#" target="_blank">Anirudh Satheesh<sup>1</sup></a>
+        <a class="author" href="#" target="_blank">Muhammad R. Islam<sup>1</sup></a>
+        <a class="author" href="#" target="_blank">Udari Madhushani Sewwog<sup>2</sup></a>
+        <a class="author" href="#" target="_blank">Tom Goldstein<sup>1</sup></a>
+        <a class="author" href="#" target="_blank">Furong Huang<sup>1</sup></a>
+      </div>
+      
+      <div class="affiliations">
+        <span><sup>1</sup>University of Maryland, College Park</span>
+        <i></i>
+        <span><sup>2</sup>Scale AI</span>
+      </div>
+      <p class="equal-contrib"><sup>*</sup> Equal contribution</p>
+      
+      <div class="btn-group">
+        <a href="#" class="btn btn-arxiv" aria-label="arXiv Paper">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.8423 0a1.0037 1.0037 0 0 0-.922.6078c-.1536.3687-.0438.6275.2938 1.1113l6.9185 8.3597-1.0223 1.1058a1.0393 1.0393 0 0 0 .003 1.4229l1.2292 1.3135-5.4391 6.4444c-.2803.299-.4538.823-.2971 1.1986a1.0253 1.0253 0 0 0 .9585.635.9133.9133 0 0 0 .6891-.3405l5.783-6.126 7.4902 8.0051a.8527.8527 0 0 0 .6835.2597.9575.9575 0 0 0 .8777-.6138c.1577-.377-.017-.7502-.306-1.1407l-7.0518-8.3418 1.0632-1.13a.9626.9626 0 0 0 .0089-1.3165L4.6336.4639s-.3733-.4535-.768-.463zm0 .272h.0166c.2179.0052.4874.2715.5644.3639l.005.006.0052.0055 10.169 10.9905a.6915.6915 0 0 1-.0072.945l-1.0666 1.133-1.4982-1.7724-8.5994-10.39c-.3286-.472-.352-.6183-.2592-.841a.7307.7307 0 0 1 .6704-.4401Zm14.341 1.5701a.877.877 0 0 0-.6554.2418l-5.6962 6.1584 1.6944 1.8319 5.3089-6.5138c.3251-.4335.479-.6603.3247-1.0292a1.1205 1.1205 0 0 0-.9763-.689zm-7.6557 12.2823 1.3186 1.4135-5.7864 6.1295a.6494.6494 0 0 1-.4959.26.7516.7516 0 0 1-.706-.4669c-.1119-.2682.0359-.6864.2442-.9083l.0051-.0055.0047-.0055z"/></svg>
+          arXiv Paper <span class="badge-tag">PDF</span>
+        </a>
+        <a href="#" class="btn btn-github" aria-label="Code Repository">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          Code <span class="badge-tag">GitHub</span>
+        </a>
+        <a href="#" class="btn btn-outline" aria-label="Dataset">
+          <span style="font-size: 1rem;">🤗</span>
+          EventLapse Dataset <span class="badge-tag">HuggingFace</span>
+        </a>
+        <a href="#bibtex" class="btn btn-outline" aria-label="BibTeX Citation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+          BibTeX
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Navigation Bar -->
+  <nav class="sticky-nav">
+    <div class="nav-container">
+      <a href="#abstract" class="nav-link active">Abstract</a>
+      <a href="#framework" class="nav-link">Framework</a>
+      <a href="#capability-surfaces" class="nav-link">Capability Surfaces</a>
+      <a href="#diagnostics" class="nav-link">Diagnostics</a>
+      <a href="#real-world" class="nav-link">Real-World Transfer</a>
+      <a href="#bibtex" class="nav-link">BibTeX</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- Figure 1: Teaser Section -->
+    <section class="section" style="padding-top: 0;">
+      <div class="card figure-card">
+        <img src="assets/images/hero_teaser.png" alt="Figure 1: EventLapse Paradigm and Low-Frequency Trap" class="figure-img">
+        <p class="caption">
+          <strong>Figure 1: EventLapse paradigm and the Low-Frequency Trap.</strong> 
+          Real-world benchmarks entangle visual complexity with event dynamics, hiding failure causes. EventLapse isolates event count (<i>N</i>) and event frequency (<i>F</i>) across three controlled tasks: bouncing balls (transient wall contacts), blinking lights (transient visual flashes), and state machine indicators (persistent state changes). Paired with executable ground-truth traces, EventLapse evaluates both the final count and event-by-event temporal execution.
+        </p>
+      </div>
     </section>
 
-    <section class="statement" aria-labelledby="thesis-title">
-      <p class="section-label">The finding</p>
-      <div><h2 id="thesis-title">A simple question exposes a fundamental failure mode.</h2><p>Frontier video–language models can describe a scene, yet often lose track of repeated events when the evidence unfolds over time. We call this reliability boundary the <em>Low-Frequency Trap.</em></p></div>
+    <!-- Abstract Section -->
+    <section id="abstract" class="section">
+      <h2 class="section-title">Abstract</h2>
+      <div class="card">
+        <p>
+          Real-world video benchmarks provide broad coverage, but their fixed clips entangle event count, rate, duration, and visual complexity, making failure modes hard to isolate. While existing programmatic benchmarks offer better control, they primarily score only the final answer rather than auditing reported events against executable ground truth.
+        </p>
+        <p style="margin-top: 1.25rem;">
+          To bridge this gap, we introduce <strong>trace-grounded parametric profiling</strong> for event counting in three controlled video tasks: bouncing-ball wall contacts, visual blinks, and categorical state transitions. Across <strong>2,190 videos</strong>, we systematically vary event count (<i>N</i>) and frequency (<i>F</i>) while holding rendering fixed. Each video includes an executable event trace for capability-surface estimation and timestamp-level evaluation.
+        </p>
+        <p style="margin-top: 1.25rem;">
+          Our results reveal a staged temporal failure: at an 80% reliability threshold, Gemini 3.6 Flash reliably counts persistent state transitions up to 12 events at 0.5 and 1.0 Hz, yet demonstrates no reliable positive-count region for transient blinking events. Thus, event representation (persistent vs. transient) dictates whether a model initially accesses evidence—a limitation that compounds as count and frequency increase. In high-count, high-frequency regimes, only <strong>0.2%</strong> of final counts are correct and models recover just <strong>18.1%</strong> of true events. Furthermore, increasing sampling rate boosts Bounce Ball final accuracy from 19.6% to 29.3%, yet reported sequences agree with ground truth only <strong>3.7%</strong> of the time, proving that extra frames inflate final scores without producing faithful event recovery.
+        </p>
+
+        <!-- Metric Highlights Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-val">2,190</div>
+            <div class="metric-label">Evaluated Videos</div>
+            <div class="metric-desc">Systematic grid sweep across <i>N</i> &times; <i>F</i> parameter space.</div>
+          </div>
+          <div class="metric-card alert">
+            <div class="metric-val">0.2%</div>
+            <div class="metric-label">High-Load Accuracy</div>
+            <div class="metric-desc">Final count accuracy under high event count and frequency.</div>
+          </div>
+          <div class="metric-card alert">
+            <div class="metric-val">18.1%</div>
+            <div class="metric-label">True Event Recall</div>
+            <div class="metric-desc">Model ability to recover true timestamped events under load.</div>
+          </div>
+          <div class="metric-card alert">
+            <div class="metric-val">3.7%</div>
+            <div class="metric-label">Trace Agreement</div>
+            <div class="metric-desc">Timestamp sequence alignment despite 4&times; frame density boost.</div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="grid-section" aria-label="Study overview">
-      <article class="card card-dark"><p class="section-label">01 / Measure</p><h3>Count what happened.</h3><p>EventLapse pairs controlled videos with executable ground-truth traces, separating a correct final count from faithful event-by-event bookkeeping.</p><div class="count-strip" aria-hidden="true"><b>01</b><b>02</b><b>03</b><b class="faded">04</b><b class="faded">05</b><b class="faded">06</b></div></article>
-      <article class="card card-mint"><p class="section-label">02 / Diagnose</p><h3>Map the boundary.</h3><p>We vary event count and frequency to identify where performance becomes unreliable, then use traces and interventions to understand why.</p><div class="plot" aria-hidden="true"><span class="axis y">Accuracy</span><span class="axis x">Event frequency →</span><div class="curve"></div><div class="dot dot-one"></div><div class="dot dot-two"></div><div class="dot dot-three"></div></div></article>
-      <article class="card card-paper"><p class="section-label">03 / Test</p><h3>Recovery is not automatic.</h3><p>More frames, keyframe selection, and prompt changes can help at the margin—but do not eliminate the underlying temporal tracking failure.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></article>
+    <!-- Figure 2: Framework & Tasks Section -->
+    <section id="framework" class="section">
+      <h2 class="section-title">The EventLapse Framework</h2>
+      <div class="card figure-card">
+        <img src="assets/images/data_overview.png" alt="Figure 2: EventLapse Task Overview" class="figure-img">
+        <p class="caption">
+          <strong>Figure 2: EventLapse tasks and trace-grounded evaluation.</strong>
+          Controlled synthetic videos generated across three task domains: <strong>Bounce Ball</strong> (wall contact bookkeeping), <strong>Blinking</strong> (transient visual flashes), and <strong>State Machine</strong> (persistent state transitions). Each sample includes exact event timestamps, enabling evaluation of both final-answer correctness and step-by-step trace fidelity.
+        </p>
+      </div>
     </section>
 
-    <section class="abstract" aria-labelledby="abstract-title">
-      <p class="section-label">Abstract</p>
-      <div><h2 id="abstract-title">Temporal understanding needs more than a final answer.</h2><p>Video–language models are increasingly evaluated on broad video understanding benchmarks, but success on a final answer can conceal failures in the temporal reasoning that produced it. EventLapse measures whether models can maintain an accurate account of repeated events across a video. Our results reveal a sharp capability boundary: as event load grows, models frequently fail at elementary event bookkeeping—even when the task remains visually simple.</p></div>
+    <!-- Figure 3: Capability Surfaces Section -->
+    <section id="capability-surfaces" class="section">
+      <h2 class="section-title">Empirical Capability Surfaces</h2>
+      <div class="card figure-card">
+        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 16px;">
+          <img src="assets/images/capability_surfaces.png" alt="Figure 3a: Gemini 3.6 Flash Capability Surfaces" class="figure-img">
+          <img src="assets/images/qwen_temporal_profiling.png" alt="Figure 3b: Qwen-VL Capability Surfaces & Model Sweep" class="figure-img">
+        </div>
+        <p class="caption">
+          <strong>Figure 3: Capability surface heatmaps across <i>N</i> &times; <i>F</i> space for frontier VLMs.</strong>
+          Reliability boundaries for Gemini 3.6 Flash (top) and Qwen-VL (bottom) across event count (<i>N</i> = 1..12) and frequency (<i>F</i> = 0.1..2.0 Hz). Persistent state transitions remain reliable (accuracy &ge; 80%) up to high event counts, whereas transient blinking events demonstrate early failure boundaries even at low event loads.
+        </p>
+      </div>
     </section>
+
+    <!-- Figure 4: Diagnostics & Interventions Section -->
+    <section id="diagnostics" class="section">
+      <h2 class="section-title">Diagnostic Interventions</h2>
+      <div class="card figure-card">
+        <img src="assets/images/diagnostic_interventions.png" alt="Figure 4: Diagnostic Interventions Analysis" class="figure-img">
+        <p class="caption">
+          <strong>Figure 4: Frame density, keyframes, and prompt interventions.</strong>
+          Increasing sampling rate (e.g. from 1 fps to 4 fps) improves final-answer accuracy on Bounce Ball from 19.6% to 29.3%. However, auditing reported timestamp traces reveals that trace agreement remains at a dismal <strong>3.7%</strong>. Extra frames allow models to guess final counts better without executing faithful temporal bookkeeping.
+        </p>
+      </div>
+    </section>
+
+    <!-- Figure 5: Real-World Transfer Section -->
+    <section id="real-world" class="section">
+      <h2 class="section-title">Real-World Transfer</h2>
+      <div class="card figure-card">
+        <img src="assets/images/real_world_transfer.png" alt="Figure 5: Real-World Transfer Evaluation" class="figure-img" style="max-width: 850px; margin: 0 auto 16px;">
+        <p class="caption">
+          <strong>Figure 5: Transfer evaluation on natural videos.</strong>
+          Testing models on natural repeated-event videos confirms that performance degradation concentrates at high event counts, validating that controlled synthetic findings reflect real-world video-language capabilities.
+        </p>
+      </div>
+    </section>
+
+    <!-- BibTeX Citation Section -->
+    <section id="bibtex" class="section">
+      <h2 class="section-title">BibTeX Citation</h2>
+      <div class="card">
+        <p style="margin-bottom: 14px; color: var(--text-muted);">If you find our work or the EventLapse benchmark useful in your research, please cite:</p>
+        
+        <div class="bibtex-wrapper">
+          <button id="copy-bibtex-btn" class="copy-btn">Copy BibTeX</button>
+          <pre id="bibtex-code"><code>@article{baskar2026lowfrequencytrap,
+  title={The Low-Frequency Trap: Video--Language Models Fail at Simple Event Bookkeeping},
+  author={Baskar, Sarvesh and Cai, Zikui and Shabihi, Shayan and Satheesh, Anirudh and Islam, Muhammad R. and Sewwog, Udari Madhushani and Goldstein, Tom and Huang, Furong},
+  journal={arXiv preprint},
+  year={2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <footer><p>The Low-Frequency Trap · EventLapse</p><p>© 2026</p></footer>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>The Low-Frequency Trap &middot; EventLapse Benchmark &copy; 2026</p>
+    </div>
+  </footer>
+
 </body>
 </html>
