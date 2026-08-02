@@ -359,19 +359,19 @@ document.addEventListener('DOMContentLoaded', () => {
     "category": "Accidental Correctness (Accidental Correctness Ratio / ACR)",
     "categoryKey": "acr",
     "videoSrc": "assets/videos/qual_acr_blinking.mp4",
-    "domain": "Blinking (N=1, F=3.0Hz, Seed=7)",
+    "domain": "Blinking (N=2, F=0.5Hz, Seed=4)",
     "prompt": "How many times did the object blink?",
-    "gtCount": "1",
-    "gtTimestamps": "Executable Timestamps: [\"00:08.00\"]",
-    "gtTrace": "### Scene Description\nAn object pulsing ON and OFF at frequency 3.0 Hz.\n- At 8.00s: Blink event pulse (count=1)\n\n### Step 1: Track Blink Pulses\nTotal blinks detected: 1.\n\n\\boxed{1}",
+    "gtCount": "2",
+    "gtTimestamps": "Executable Timestamps: [\"00:12.70\", \"00:14.70\"]",
+    "gtTrace": "### Scene Description\nAn object pulsing ON and OFF at frequency 0.5 Hz.\n- At 12.70s: Blink event pulse (count=1)\n- At 14.70s: Blink event pulse (count=2)\n\n### Step 1: Track Blink Pulses\nTotal blinks detected: 2.\n\n\\boxed{2}",
     "modelName": "GEMINI 3.6 FLASH PREDICTION",
     "traceF1": "0.0%",
     "precision": "0.0%",
     "recall": "0.0%",
-    "predAnswer": "1",
+    "predAnswer": "2",
     "predStatus": "correct",
-    "modelOutput": "1. Step-by-Step Event Ledger\n- 00:09 - Object blinks - Running count: 1\n\n2. Final Answer\n\\boxed{1}",
-    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (1), but its reported timestamp (00:09) drifted beyond tolerance from ground truth (00:08.00, Trace F1: 0.0%), achieving accidental correctness through timestamp displacement."
+    "modelOutput": "1. **Step-by-Step Event Ledger**\n- At timestamp 2.8s (frame 28), the object flashes solid cyan, marking the first blink (running count: 1).\n- At timestamp 4.3s (frame 43), the object flashes solid cyan again, marking the second blink (running count: 2).\n- No further blinking events occur throughout the remainder of the sequence.\n\n2. **Final Answer**\n\\boxed{2}",
+    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (2), but reported timestamps (2.8s and 4.3s) that hallucinated timestamps ~10 seconds earlier than ground truth (12.7s and 14.7s), causing Trace F1 to drop to 0.0%."
   },
   {
     "id": 18,
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (counterEl) counterEl.innerText = `Example ${currentFilteredPointer + 1} of ${filteredIndices.length}`;
     
     if (videoPlayerEl) {
-      videoPlayerEl.src = data.videoSrc + '?v=20260802_v30';
+      videoPlayerEl.src = data.videoSrc + '?v=20260802_v35';
       videoPlayerEl.load();
       videoPlayerEl.play().catch(() => {});
     }
