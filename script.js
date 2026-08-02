@@ -370,8 +370,8 @@ document.addEventListener('DOMContentLoaded', () => {
     "recall": "0.0%",
     "predAnswer": "1",
     "predStatus": "correct",
-    "modelOutput": "1. **Step-by-Step Event Ledger**\n\n- **00:15 - 00:16**: The central triangle object blinks ON (Running count: 1).\n\n2. **Final Answer**\n\n\\boxed{1}",
-    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (1), but hallucinated an incorrect timestamp (00:15 instead of 00:08, Trace F1: 0.0%), demonstrating accidental correctness through timestamp misalignment."
+    "modelOutput": "1. Step-by-Step Event Ledger\n- 00:09 - Object blinks - Running count: 1\n\n2. Final Answer\n\\boxed{1}",
+    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (1), but its reported timestamp (00:09) drifted beyond tolerance from ground truth (00:08.00, Trace F1: 0.0%), achieving accidental correctness through timestamp displacement."
   },
   {
     "id": 18,
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (counterEl) counterEl.innerText = `Example ${currentFilteredPointer + 1} of ${filteredIndices.length}`;
     
     if (videoPlayerEl) {
-      videoPlayerEl.src = data.videoSrc + '?v=20260802_v26';
+      videoPlayerEl.src = data.videoSrc + '?v=20260802_v30';
       videoPlayerEl.load();
       videoPlayerEl.play().catch(() => {});
     }
