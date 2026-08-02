@@ -67,6 +67,7 @@
       <a href="#capability-surfaces" class="nav-link">Capability Surfaces</a>
       <a href="#diagnostics" class="nav-link">Diagnostics</a>
       <a href="#real-world" class="nav-link">Real-World Transfer</a>
+      <a href="#qualitative-demo" class="nav-link">Qualitative Demo</a>
       <a href="#bibtex" class="nav-link">BibTeX</a>
     </div>
   </nav>
@@ -184,6 +185,323 @@
         </p>
       </div>
     </section>
+
+    <!-- Qualitative Examples & Diagnostic Taxonomy Demo Section -->
+    <section id="qualitative-demo" class="section">
+      <h2 class="section-title">Qualitative Examples & Diagnostic Taxonomy Demo</h2>
+      
+      <p style="text-align: center; color: var(--text-muted); max-width: 800px; margin: -12px auto 28px; font-size: 1.05rem;">
+        Auditing model-reported timestamped event traces against executable ground truth across all 6 diagnostic taxonomy categories.
+      </p>
+
+      <!-- Task Domain Sample Videos -->
+      <div class="card" style="margin-bottom: 32px;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main);">Task Domain Sample Videos</h3>
+        <div class="video-demo-grid">
+          <div class="video-demo-card">
+            <video src="assets/videos/bounce_ball_demo.mp4" autoplay loop muted playsinline class="demo-video"></video>
+            <div class="video-demo-info">
+              <h4>Bounce Ball Task</h4>
+              <p>Wall contact event counting under variable speed & frequency.</p>
+            </div>
+          </div>
+          <div class="video-demo-card">
+            <video src="assets/videos/blinking_light_demo.mp4" autoplay loop muted playsinline class="demo-video"></video>
+            <div class="video-demo-info">
+              <h4>Blinking Light Task</h4>
+              <p>Transient visual flash pulse detection & timestamp logging.</p>
+            </div>
+          </div>
+          <div class="video-demo-card">
+            <video src="assets/videos/state_machine_demo.mp4" autoplay loop muted playsinline class="demo-video"></video>
+            <div class="video-demo-info">
+              <h4>State Machine Task</h4>
+              <p>Persistent multi-colored state transition tracking.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="taxonomy-tabs">
+        <button class="tab-btn active" data-tab="faithful">
+          <span class="tab-dot dot-green"></span> Faithful Recovery (Correct Match)
+        </button>
+        <button class="tab-btn" data-tab="missed">
+          <span class="tab-dot dot-red"></span> Missed Events (Under-Reporting)
+        </button>
+        <button class="tab-btn" data-tab="hallucinated">
+          <span class="tab-dot dot-orange"></span> Hallucinated Events (Over-Reporting)
+        </button>
+        <button class="tab-btn" data-tab="displaced">
+          <span class="tab-dot dot-yellow"></span> Temporally Displaced (Drift)
+        </button>
+        <button class="tab-btn" data-tab="rfr">
+          <span class="tab-dot dot-purple"></span> Wrong Accumulation (RFR)
+        </button>
+        <button class="tab-btn" data-tab="acr">
+          <span class="tab-dot dot-blue"></span> Accidental Correctness (ACR)
+        </button>
+      </div>
+
+      <!-- Category Panels Container -->
+      <div class="taxonomy-panels">
+        
+        <!-- Panel 1: Faithful Recovery -->
+        <div class="taxonomy-panel active" id="panel-faithful">
+          <div class="card category-meta-card">
+            <div class="cat-header">
+              <span class="cat-badge badge-success">Category 1: Faithful Event Recovery (Correct Match)</span>
+              <div class="cat-metrics">
+                <span class="metric-pill pill-success">Trace F₁ = 100%</span>
+                <span class="metric-pill pill-success">Precision = 100%</span>
+                <span class="metric-pill pill-success">Recall = 100%</span>
+                <span class="metric-pill pill-success">Exact Match = 100%</span>
+              </div>
+            </div>
+            <p class="cat-desc">
+              In low-count, low-frequency operating regions (e.g. <i>N</i> = 5, <i>F</i> = 0.5 Hz), Gemini 3.6 Flash accurately logs every physical wall contact or state transition in sequential order, matching all ground-truth event timestamps within the rate-relative tolerance (&tau;<sub>match</sub> = 1.0s) and outputting a correct final integer count.
+            </p>
+          </div>
+
+          <div class="qualitative-examples-grid">
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 1 (Part 1: Cases 1–3)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_correct_part1.png" alt="Faithful Event Recovery Example 1" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 1 (Cases 1–3): Faithful event recovery trials.</strong> Keyframe thumbnails rendered at exact event timestamps with green event boundary badges, aligned model-reported step-by-step event ledgers, and exact integer predictions.
+              </p>
+            </div>
+
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 2 (Part 2: Cases 4–5)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_correct_part2.png" alt="Faithful Event Recovery Example 2" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 2 (Cases 4–5): Additional faithful recovery trials.</strong> Additional distinct test cases demonstrating perfect trace precision and recall under low event load.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Missed Events -->
+        <div class="taxonomy-panel" id="panel-missed">
+          <div class="card category-meta-card">
+            <div class="cat-header">
+              <span class="cat-badge badge-danger">Category 2: Missed Events (Under-Reporting / Perception Failure)</span>
+              <div class="cat-metrics">
+                <span class="metric-pill pill-danger">Recall &lt; 50%</span>
+                <span class="metric-pill pill-danger">Severe Under-Reporting</span>
+                <span class="metric-pill pill-danger">Exact Match = 0%</span>
+              </div>
+            </div>
+            <p class="cat-desc">
+              Under high temporal load (<i>N</i> &ge; 8, <i>F</i> &ge; 1.5 Hz), visual evidence becomes compressed in time. The model omits intermediate physical events (e.g. reporting only 1 or 2 timestamps for an 8-event video), resulting in severe recall degradation and perception failure.
+            </p>
+          </div>
+
+          <div class="qualitative-examples-grid">
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 1 (Part 1: Cases 1–3)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_missed_event_part1.png" alt="Missed Events Example 1" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 1 (Cases 1–3): Perception & under-reporting failure.</strong> Model misses multiple physical wall contacts or transient blinks as event frequency increases.
+              </p>
+            </div>
+
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 2 (Part 2: Cases 4–5)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_missed_event_part2.png" alt="Missed Events Example 2" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 2 (Cases 4–5): High-frequency omission trials.</strong> Further distinct test cases demonstrating severe event omission under high event count (<i>N</i>) and rate (<i>F</i>).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: Hallucinated Events -->
+        <div class="taxonomy-panel" id="panel-hallucinated">
+          <div class="card category-meta-card">
+            <div class="cat-header">
+              <span class="cat-badge badge-warning">Category 3: Hallucinated Events (Over-Reporting / Spurious Detection)</span>
+              <div class="cat-metrics">
+                <span class="metric-pill pill-warning">Precision &lt; 50%</span>
+                <span class="metric-pill pill-warning">Spurious Detection</span>
+                <span class="metric-pill pill-danger">Exact Match = 0%</span>
+              </div>
+            </div>
+            <p class="cat-desc">
+              Typical of low-load operating regions, the model generates spurious timestamps for wall contacts or state transitions during continuous motion intervals where no physical event occurred, lowering trace precision (<i>P</i> &lt; 50%).
+            </p>
+          </div>
+
+          <div class="qualitative-examples-grid">
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 1 (Part 1: Cases 1–3)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_hallucinated_event_part1.png" alt="Hallucinated Events Example 1" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 1 (Cases 1–3): Spurious over-reporting.</strong> Model reports phantom timestamps where no event occurred in the ground-truth physical trace.
+              </p>
+            </div>
+
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 2 (Part 2: Cases 4–5)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_hallucinated_event_part2.png" alt="Hallucinated Events Example 2" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 2 (Cases 4–5): Additional hallucination trials.</strong> Distinct test cases showing low trace precision due to spurious event generation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: Temporally Displaced -->
+        <div class="taxonomy-panel" id="panel-displaced">
+          <div class="card category-meta-card">
+            <div class="cat-header">
+              <span class="cat-badge badge-info">Category 4: Temporally Displaced Events (Timestamp Drift)</span>
+              <div class="cat-metrics">
+                <span class="metric-pill pill-info">Timestamp Drift &gt; 1.0s</span>
+                <span class="metric-pill pill-success">Sequence Detected</span>
+                <span class="metric-pill pill-warning">Low Match Accuracy</span>
+              </div>
+            </div>
+            <p class="cat-desc">
+              The model detects the presence and sequence of visual transitions, but assigns boundary timestamps that drift beyond the 1.0s rate-relative tolerance window relative to physical ground truth.
+            </p>
+          </div>
+
+          <div class="qualitative-examples-grid">
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 1 (Part 1: Cases 1–3)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_temporally_displaced_event_part1.png" alt="Temporally Displaced Events Example 1" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 1 (Cases 1–3): Temporal displacement.</strong> Model detects event occurrences but outputs timestamp values that drift away from physical boundaries.
+              </p>
+            </div>
+
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 2 (Part 2: Cases 4–5)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_temporally_displaced_event_part2.png" alt="Temporally Displaced Events Example 2" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 2 (Cases 4–5): Additional drift trials.</strong> Distinct test cases demonstrating correct event sequence recovery with timestamp misalignment.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 5: Wrong Accumulation (RFR) -->
+        <div class="taxonomy-panel" id="panel-rfr">
+          <div class="card category-meta-card">
+            <div class="cat-header">
+              <span class="cat-badge badge-purple">Category 5: Wrong Accumulation (Reasoning Failure / RFR)</span>
+              <div class="cat-metrics">
+                <span class="metric-pill pill-success">Trace F₁ &ge; 80%</span>
+                <span class="metric-pill pill-danger">Final Answer Wrong</span>
+                <span class="metric-pill pill-purple">Reasoning-to-Answer Gap</span>
+              </div>
+            </div>
+            <p class="cat-desc">
+              Demonstrating <strong>Reasoning Failure Ratio (RFR)</strong>: The model successfully maintains a 100% accurate step-by-step event ledger in its reasoning text (<i>F</i><sub>1</sub> &ge; 80%), but fails at the final arithmetic aggregation step—outputting an incorrect integer in `\boxed{}`. This isolates a pure trace-to-answer accumulation failure.
+            </p>
+          </div>
+
+          <div class="qualitative-examples-grid">
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 1 (Part 1: Cases 1–3)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_correct_trace_wrong_final_answer_part1.png" alt="Wrong Accumulation Example 1" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 1 (Cases 1–3): Perfect trace, wrong final count (RFR).</strong> The model correctly lists every event timestamp in text, yet outputs a wrong final count integer.
+              </p>
+            </div>
+
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 2 (Part 2: Cases 4–5)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_correct_trace_wrong_final_answer_part2.png" alt="Wrong Accumulation Example 2" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 2 (Cases 4–5): Additional RFR trials.</strong> Distinct test cases showing arithmetic counting errors despite faithful step-by-step event logs.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 6: Accidental Correctness (ACR) -->
+        <div class="taxonomy-panel" id="panel-acr">
+          <div class="card category-meta-card">
+            <div class="cat-header">
+              <span class="cat-badge badge-blue">Category 6: Accidental Correctness (Accidental Correctness Ratio / ACR)</span>
+              <div class="cat-metrics">
+                <span class="metric-pill pill-success">Exact Match = 100%</span>
+                <span class="metric-pill pill-danger">Trace F₁ &lt; 40%</span>
+                <span class="metric-pill pill-warning">Ungrounded Answer</span>
+              </div>
+            </div>
+            <p class="cat-desc">
+              Demonstrating <strong>Accidental Correctness Ratio (ACR)</strong>: The final integer prediction matches ground truth, but the underlying event trace is severely degraded (<i>F</i><sub>1</sub> &lt; 40%) with missing or hallucinated timestamps. Relying solely on final-answer exact match misclassifies these ungrounded responses as successful temporal reasoning.
+            </p>
+          </div>
+
+          <div class="qualitative-examples-grid">
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 1 (Part 1: Cases 1–3)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_incorrect_trace_accidental_correct_part1.png" alt="Accidental Correctness Example 1" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 1 (Cases 1–3): Correct final count, broken trace (ACR).</strong> Final integer matches ground truth by chance, but the step-by-step reasoning trace contains severe hallucination or omission.
+              </p>
+            </div>
+
+            <div class="card figure-card example-card">
+              <div class="example-header">
+                <span class="example-tag">Example 2 (Part 2: Cases 4–5)</span>
+                <span class="zoom-hint">Click image to expand 🔍</span>
+              </div>
+              <img src="assets/images/qualitative_incorrect_trace_accidental_correct_part2.png" alt="Accidental Correctness Example 2" class="figure-img expandable-img">
+              <p class="caption">
+                <strong>Part 2 (Cases 4–5): Additional ACR trials.</strong> Additional distinct test cases proving why trace auditing is essential to prevent false positive capability claims.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Modal for High-Res Image Inspection -->
+    <div id="image-modal" class="modal-overlay">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modal-img" alt="Zoomed Qualitative Figure">
+    </div>
 
     <!-- BibTeX Citation Section -->
     <section id="bibtex" class="section">

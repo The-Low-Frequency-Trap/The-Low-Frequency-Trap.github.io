@@ -45,4 +45,57 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Taxonomy Category Tab Switching
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const taxonomyPanels = document.querySelectorAll('.taxonomy-panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      taxonomyPanels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const activePanel = document.getElementById('panel-' + targetTab);
+      if (activePanel) {
+        activePanel.classList.add('active');
+      }
+    });
+  });
+
+  // Lightbox Modal Zoom for Qualitative Examples
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const modalClose = document.querySelector('.modal-close');
+  const expandableImgs = document.querySelectorAll('.expandable-img');
+
+  expandableImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      if (modal && modalImg) {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.classList.add('open');
+      }
+    });
+  });
+
+  if (modalClose && modal) {
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('open');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        modal.classList.remove('open');
+      }
+    });
+  }
 });
