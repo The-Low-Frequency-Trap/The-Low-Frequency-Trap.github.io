@@ -314,7 +314,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (counterEl) counterEl.innerText = `Example ${currentFilteredPointer + 1} of ${filteredIndices.length}`;
     
     if (videoPlayerEl) {
-      videoPlayerEl.src = data.videoSrc;
+      videoPlayerEl.src = data.videoSrc + '?v=20260802_raw_v5';
+      videoPlayerEl.load();
       videoPlayerEl.play().catch(() => {});
     }
 
