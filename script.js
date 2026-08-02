@@ -228,14 +228,14 @@ document.addEventListener('DOMContentLoaded', () => {
     "videoSrc": "assets/videos/qual_displaced_bounce_ball.mp4",
     "domain": "Bounce Ball (N=4, F=0.5Hz, Seed=0)",
     "prompt": "How many times did the ball contact the walls in the video?",
-    "gtCount": 4,
+    "gtCount": "4",
     "gtTimestamps": "Executable Timestamps: [\"00:04.10\", \"00:08.10\", \"00:12.10\", \"00:16.10\"]",
     "gtTrace": "Ground Truth Executable Trace\n- At 4.10s: Ball contacts left wall\n- At 8.10s: Ball contacts right wall\n- At 12.10s: Ball contacts left wall\n- At 16.10s: Ball contacts right wall\nTotal contacts: 4.\n\\boxed{4}",
     "modelName": "GEMINI 3.6 FLASH PREDICTION",
     "traceF1": "50.0%",
     "precision": "50.0%",
     "recall": "50.0%",
-    "predAnswer": 4,
+    "predAnswer": "4",
     "predStatus": "wrong",
     "modelOutput": "### Step-by-Step Event Ledger\n- ++00:02++ Wall contact (Running count: 1)\n- ++00:06++ Wall contact (Running count: 2)\n- ++00:10++ Wall contact (Running count: 3)\n- ++00:14++ Wall contact (Running count: 4)\n\n### Final Answer\n\\boxed{4}",
     "justification": "Timestamp Drift / Displacement: Gemini detected all 4 wall contact occurrences, but reported timestamps drift beyond the 1.0s tolerance window relative to physical ground truth."
@@ -340,38 +340,38 @@ document.addEventListener('DOMContentLoaded', () => {
     "category": "Accidental Correctness (Accidental Correctness Ratio / ACR)",
     "categoryKey": "acr",
     "videoSrc": "assets/videos/qual_acr_bounce_ball.mp4",
-    "domain": "Bounce Ball (N=0, F=1.0Hz, Seed=4)",
+    "domain": "Bounce Ball (N=12, F=1.0Hz, Seed=9)",
     "prompt": "How many times did the ball contact the walls?",
-    "gtCount": "0",
-    "gtTimestamps": "Executable Timestamps: []",
-    "gtTrace": "### Scene Description\nBall bouncing between two walls at frequency 1.0 Hz.\n\n### Step 1: Track Contact Events\nTotal wall contact events detected: 0.\n\n\\boxed{0}",
+    "gtCount": "12",
+    "gtTimestamps": "Executable Timestamps: [\"00:06.47\", \"00:07.47\", \"00:08.47\", \"00:09.47\", \"00:10.47\", \"00:11.47\", \"00:12.47\", \"00:13.47\", \"00:14.47\", \"00:15.47\", \"00:16.47\", \"00:17.47\"]",
+    "gtTrace": "### Scene Description\nBall bouncing between two walls at frequency 1.0 Hz.\n- At 6.47s: Ball contacted wall_negative (count=1)\n- At 7.47s: Ball contacted wall_positive (count=2)\n- At 8.47s: Ball contacted wall_negative (count=3)\n- At 9.47s: Ball contacted wall_positive (count=4)\n- At 10.47s: Ball contacted wall_negative (count=5)\n- At 11.47s: Ball contacted wall_positive (count=6)\n- At 12.47s: Ball contacted wall_negative (count=7)\n- At 13.47s: Ball contacted wall_positive (count=8)\n- At 14.47s: Ball contacted wall_negative (count=9)\n- At 15.47s: Ball contacted wall_positive (count=10)\n- At 16.47s: Ball contacted wall_negative (count=11)\n- At 17.47s: Ball contacted wall_positive (count=12)\n\n### Step 1: Track Contact Events\nTotal wall contact events detected: 12.\n\n\\boxed{12}",
     "modelName": "GEMINI 3.6 FLASH PREDICTION",
-    "traceF1": "0.0%",
-    "precision": "0.0%",
-    "recall": "0.0%",
-    "predAnswer": "0",
+    "traceF1": "33.3%",
+    "precision": "50.0%",
+    "recall": "25.0%",
+    "predAnswer": "12",
     "predStatus": "correct",
-    "modelOutput": "1. Step-by-Step Event Ledger\n- 00:00 - 00:23: The blue ball remains completely stationary in the center of the screen and does not make contact with any wall (Running count: 0).\n\n2. Final Answer\n\\boxed{0}",
-    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (0), but its reported trace was incomplete/flawed (Trace F1: 0.0%), demonstrating a lucky guess or compensating errors."
+    "modelOutput": "1. Step-by-Step Event Ledger\n\n- The video starts with the ball stationary in the middle section from 00:00 to 00:05.\n- From 00:06 to 00:17, the ball bounces continuously between the top and bottom pink walls, contacting a wall once per second for a total of 12 wall contacts.\n- From 00:18 to 00:23, the ball returns to the center rest position without contacting any walls.\n\n2. Final Answer\n\\boxed{12}",
+    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (12), but its reported trace was incomplete/flawed (Trace F1: 33.3%), demonstrating a lucky guess or compensating errors."
   },
   {
     "id": 17,
     "category": "Accidental Correctness (Accidental Correctness Ratio / ACR)",
     "categoryKey": "acr",
     "videoSrc": "assets/videos/qual_acr_blinking.mp4",
-    "domain": "Blinking (N=0, F=1.0Hz, Seed=0)",
+    "domain": "Blinking (N=1, F=3.0Hz, Seed=7)",
     "prompt": "How many times did the object blink?",
-    "gtCount": "0",
-    "gtTimestamps": "Executable Timestamps: []",
-    "gtTrace": "### Scene Description\nAn object pulsing ON and OFF at frequency 1.0 Hz.\n\n### Step 1: Track Blink Pulses\nTotal blinks detected: 0.\n\n\\boxed{0}",
+    "gtCount": "1",
+    "gtTimestamps": "Executable Timestamps: [\"00:08.00\"]",
+    "gtTrace": "### Scene Description\nAn object pulsing ON and OFF at frequency 3.0 Hz.\n- At 8.00s: Blink event pulse (count=1)\n\n### Step 1: Track Blink Pulses\nTotal blinks detected: 1.\n\n\\boxed{1}",
     "modelName": "GEMINI 3.6 FLASH PREDICTION",
     "traceF1": "0.0%",
     "precision": "0.0%",
     "recall": "0.0%",
-    "predAnswer": "0",
+    "predAnswer": "1",
     "predStatus": "correct",
-    "modelOutput": "1. Step-by-Step Event Ledger\n- 00:00 - 00:23: The central circular object remains visible and static throughout all timestamps with no blink events occurring (Running Count: 0).\n\n2. Final Answer\n\\boxed{0}",
-    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (0), but its reported trace was incomplete/flawed (Trace F1: 0.0%), demonstrating a lucky guess or compensating errors."
+    "modelOutput": "1. **Step-by-Step Event Ledger**\n\n- **00:15 - 00:16**: The central triangle object blinks ON (Running count: 1).\n\n2. **Final Answer**\n\n\\boxed{1}",
+    "justification": "Accidental Correctness (ACR): Gemini predicted the correct final integer (1), but hallucinated an incorrect timestamp (00:15 instead of 00:08, Trace F1: 0.0%), demonstrating accidental correctness through timestamp misalignment."
   },
   {
     "id": 18,
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (counterEl) counterEl.innerText = `Example ${currentFilteredPointer + 1} of ${filteredIndices.length}`;
     
     if (videoPlayerEl) {
-      videoPlayerEl.src = data.videoSrc + '?v=20260802_v18';
+      videoPlayerEl.src = data.videoSrc + '?v=20260802_v22';
       videoPlayerEl.load();
       videoPlayerEl.play().catch(() => {});
     }
