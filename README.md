@@ -1,34 +1,35 @@
+<div align="center">
+
 # The Low-Frequency Trap: Video–Language Models Fail at Simple Event Bookkeeping
 
-Official GitHub Pages project landing page for **"The Low-Frequency Trap: Video–Language Models Fail at Simple Event Bookkeeping"**.
+**Official Project Landing Page of The Low-Frequency Trap (EventLapse Benchmark)**
 
-🌐 **Project Page**: [https://the-low-frequency-trap.github.io](https://the-low-frequency-trap.github.io)  
-💻 **Code Repository**: [The-Low-Frequency-Trap/The-Low-Frequency-Trap](https://github.com/The-Low-Frequency-Trap/The-Low-Frequency-Trap)
+[Sarvesh Baskar](https://sarvesh-369.github.io/)*<sup>1</sup>, [Zikui Cai](https://zikuicai.github.io/)*<sup>1</sup>, [Shayan Shabihi](https://shayanshabihi.github.io/)*<sup>1</sup>, [Anirudh Satheesh](https://anirudhsatheesh.github.io/)<sup>1</sup>,  
+[Muhammad R. Islam](https://mrislam.github.io/)<sup>1</sup>, [Udari Madhushani Sewwog](https://udarim.github.io/)<sup>2</sup>, [Tom Goldstein](https://www.cs.umd.edu/~tomg/)<sup>1</sup>, [Furong Huang](https://furong-huang.com/)<sup>1</sup>
 
----
-
-## 📌 Abstract
-
-Real-world video benchmarks provide broad coverage, but their fixed clips entangle event count, rate, duration, and visual complexity, making failure modes hard to isolate. While existing programmatic benchmarks offer better control, they primarily score only the final answer rather than auditing reported events against executable ground truth.
-
-To bridge this gap, we introduce **trace-grounded parametric profiling** for event counting in three controlled video tasks: bouncing-ball wall contacts, visual blinks, and categorical state transitions. Across **2,190 videos**, we systematically vary event count ($N$) and frequency ($F$) while holding rendering fixed. Each video includes an executable event trace for capability-surface estimation and timestamp-level evaluation.
-
-Our results reveal a staged temporal failure: at an 80% reliability threshold, Gemini 3.6 Flash reliably counts persistent state transitions up to 12 events at 0.5 and 1.0 Hz, yet demonstrates no reliable positive-count region for transient blinking events. In high-count, high-frequency regimes, only **0.2%** of final counts are correct and models recover just **18.1%** of true events. Extra frames inflate final scores without producing faithful event recovery.
-
----
-
-## 👥 Authors
-
-- **Sarvesh Baskar*** — *University of Maryland, College Park*
-- **Zikui Cai*** — *University of Maryland, College Park*
-- **Shayan Shabihi*** — *University of Maryland, College Park*
-- **Anirudh Satheesh** — *University of Maryland, College Park*
-- **Muhammad R. Islam** — *University of Maryland, College Park*
-- **Udari Madhushani Sewwog** — *Scale AI*
-- **Tom Goldstein** — *University of Maryland, College Park*
-- **Furong Huang** — *University of Maryland, College Park*
-
+<sup>1</sup>*University of Maryland, College Park* &nbsp;&nbsp;|&nbsp;&nbsp; <sup>2</sup>*Scale AI*  
 *\* Equal contribution*
+
+<br>
+
+[![Project Page](https://img.shields.io/badge/project-page-38BDF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://the-low-frequency-trap.github.io)
+[![arXiv Paper](https://img.shields.io/badge/arxiv-paper-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white)](https://the-low-frequency-trap.github.io)
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20dataset-HuggingFace-FFD21E?style=for-the-badge)](https://the-low-frequency-trap.github.io)
+[![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
+
+<br>
+
+**[Website](https://the-low-frequency-trap.github.io) &nbsp;•&nbsp; [Code Repository](https://github.com/The-Low-Frequency-Trap/The-Low-Frequency-Trap) &nbsp;•&nbsp; [Citation](#-citation)**
+
+<br>
+
+<img src="assets/images/hero_teaser.png" width="92%" alt="The Low-Frequency Trap Teaser">
+
+</div>
+
+<br>
+
+> **The Low-Frequency Trap** evaluates Video-Language Models (VLMs) on event bookkeeping by controlling event count ($N$) and frequency ($F$). Rather than scoring final answers alone, EventLapse audits timestamped model traces against executable ground truth.
 
 ---
 
