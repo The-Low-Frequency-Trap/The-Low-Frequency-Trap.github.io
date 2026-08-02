@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ];
 
   let currentCategory = 'all';
-  let filteredIndices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  let filteredIndices = qualitativeExamples.map((_, i) => i);
   let currentFilteredPointer = 0;
 
   const catTitleEl = document.getElementById('qual-category-title');
@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (counterEl) counterEl.innerText = `Example ${currentFilteredPointer + 1} of ${filteredIndices.length}`;
     
     if (videoPlayerEl) {
-      videoPlayerEl.src = data.videoSrc + '?v=20260802_raw_v5';
+      videoPlayerEl.src = data.videoSrc + '?v=20260802_v18';
       videoPlayerEl.load();
       videoPlayerEl.play().catch(() => {});
     }
