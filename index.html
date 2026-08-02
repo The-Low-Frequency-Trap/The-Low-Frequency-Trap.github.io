@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Low-Frequency Trap: Video--Language Models Fail at Simple Event Bookkeeping.">
+  <title>The Low-Frequency Trap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="paper-title">
+      <div class="topline"><span class="eyebrow">EventLapse · 2026</span><span class="status">Project page</span></div>
+      <p class="kicker">Video–language model evaluation</p>
+      <h1 id="paper-title">The Low-<br>Frequency Trap</h1>
+      <p class="subtitle">Video–Language Models Fail at Simple Event Bookkeeping</p>
+      <p class="authors"><span>Sarvesh Baskar<sup>*</sup></span>, <span>Zikui Cai<sup>*</sup></span>, <span>Shayan Shabihi<sup>*</sup></span>, <span>Anirudh Satheesh</span>, <span>Muhammad R. Islam</span>, <span>Udari Madhushani Sewwog</span>, <span>Tom Goldstein</span>, <span>Furong Huang</span></p>
+      <p class="affiliations"><span>University of Maryland</span><i></i><span>Scale AI</span></p>
+      <p class="equal"><sup>*</sup> Equal contribution</p>
+      <nav class="links" aria-label="Project links">
+        <a class="button button-primary" href="#" aria-label="arXiv link coming soon">arXiv <span>↗</span><small>Coming soon</small></a>
+        <a class="button" href="#" aria-label="GitHub link coming soon">Code <span>↗</span><small>Coming soon</small></a>
+        <a class="button" href="#" aria-label="Hugging Face dataset link coming soon">Dataset <span>↗</span><small>Coming soon</small></a>
+      </nav>
+    </section>
+
+    <section class="statement" aria-labelledby="thesis-title">
+      <p class="section-label">The finding</p>
+      <div><h2 id="thesis-title">A simple question exposes a fundamental failure mode.</h2><p>Frontier video–language models can describe a scene, yet often lose track of repeated events when the evidence unfolds over time. We call this reliability boundary the <em>Low-Frequency Trap.</em></p></div>
+    </section>
+
+    <section class="grid-section" aria-label="Study overview">
+      <article class="card card-dark"><p class="section-label">01 / Measure</p><h3>Count what happened.</h3><p>EventLapse pairs controlled videos with executable ground-truth traces, separating a correct final count from faithful event-by-event bookkeeping.</p><div class="count-strip" aria-hidden="true"><b>01</b><b>02</b><b>03</b><b class="faded">04</b><b class="faded">05</b><b class="faded">06</b></div></article>
+      <article class="card card-mint"><p class="section-label">02 / Diagnose</p><h3>Map the boundary.</h3><p>We vary event count and frequency to identify where performance becomes unreliable, then use traces and interventions to understand why.</p><div class="plot" aria-hidden="true"><span class="axis y">Accuracy</span><span class="axis x">Event frequency →</span><div class="curve"></div><div class="dot dot-one"></div><div class="dot dot-two"></div><div class="dot dot-three"></div></div></article>
+      <article class="card card-paper"><p class="section-label">03 / Test</p><h3>Recovery is not automatic.</h3><p>More frames, keyframe selection, and prompt changes can help at the margin—but do not eliminate the underlying temporal tracking failure.</p><div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></article>
+    </section>
+
+    <section class="abstract" aria-labelledby="abstract-title">
+      <p class="section-label">Abstract</p>
+      <div><h2 id="abstract-title">Temporal understanding needs more than a final answer.</h2><p>Video–language models are increasingly evaluated on broad video understanding benchmarks, but success on a final answer can conceal failures in the temporal reasoning that produced it. EventLapse measures whether models can maintain an accurate account of repeated events across a video. Our results reveal a sharp capability boundary: as event load grows, models frequently fail at elementary event bookkeeping—even when the task remains visually simple.</p></div>
+    </section>
+  </main>
+  <footer><p>The Low-Frequency Trap · EventLapse</p><p>© 2026</p></footer>
+</body>
+</html>
