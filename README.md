@@ -2,7 +2,7 @@
 
 # The Low-Frequency Trap: Video–Language Models Fail at Simple Event Bookkeeping
 
-**Official Project Landing Page of The Low-Frequency Trap (EventLapse Benchmark)**
+**Official Project Landing Page of The Low-Frequency Trap**
 
 [Sarvesh Baskar](https://sarvesh-369.github.io/)*<sup>1</sup>, [Zikui Cai](https://zikuicai.github.io/)*<sup>1</sup>, [Shayan Shabihi](https://shayanshabihi.github.io/)*<sup>1</sup>, [Anirudh Satheesh](https://anirudhsatheesh.github.io/)<sup>1</sup>,  
 [Muhammad R. Islam](https://mrislam.github.io/)<sup>1</sup>, [Udari Madhushani Sewwog](https://udarim.github.io/)<sup>2</sup>, [Tom Goldstein](https://www.cs.umd.edu/~tomg/)<sup>1</sup>, [Furong Huang](https://furong-huang.com/)<sup>1</sup>
@@ -12,14 +12,14 @@
 
 <br>
 
-[![Project Page](https://img.shields.io/badge/project-page-38BDF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://the-low-frequency-trap.github.io)
-[![arXiv Paper](https://img.shields.io/badge/arxiv-paper-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white)](https://the-low-frequency-trap.github.io)
-[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20dataset-HuggingFace-FFD21E?style=for-the-badge)](https://the-low-frequency-trap.github.io)
+[![Project Page](https://img.shields.io/badge/project-page-38BDF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://low-frequency-trap.github.io)
+[![arXiv Paper](https://img.shields.io/badge/arxiv-paper-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white)](https://low-frequency-trap.github.io)
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20dataset-HuggingFace-FFD21E?style=for-the-badge)](https://low-frequency-trap.github.io)
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
 
 <br>
 
-**[Website](https://the-low-frequency-trap.github.io) &nbsp;•&nbsp; [Code Repository](https://github.com/The-Low-Frequency-Trap/The-Low-Frequency-Trap) &nbsp;•&nbsp; [Citation](#-citation)**
+**[Website](https://low-frequency-trap.github.io) &nbsp;•&nbsp; [Code Repository](https://github.com/Low-Frequency-Trap/The-Low-Frequency-Trap) &nbsp;•&nbsp; [Citation](#-citation)**
 
 <br>
 
@@ -29,7 +29,7 @@
 
 <br>
 
-> **The Low-Frequency Trap** evaluates Video-Language Models (VLMs) on event bookkeeping by controlling event count ($N$) and frequency ($F$). Rather than scoring final answers alone, EventLapse audits timestamped model traces against executable ground truth.
+> **The Low-Frequency Trap** evaluates Video-Language Models (VLMs) on event bookkeeping by controlling event count ($N$) and frequency ($F$). Rather than scoring final answers alone, our benchmark audits timestamped model traces against executable ground truth.
 
 ---
 
@@ -54,8 +54,8 @@ To run and preview the project page locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/The-Low-Frequency-Trap/The-Low-Frequency-Trap.github.io.git
-cd The-Low-Frequency-Trap.github.io
+git clone https://github.com/Low-Frequency-Trap/Low-Frequency-Trap.github.io.git
+cd Low-Frequency-Trap.github.io
 
 # Start a local HTTP server
 python3 -m http.server 8080
@@ -67,7 +67,7 @@ Open `http://localhost:8080` in your web browser.
 
 ## 📄 Citation
 
-If you find our work or the EventLapse benchmark useful in your research, please cite:
+If you find our work useful in your research, please cite:
 
 ```bibtex
 @article{baskar2026lowfrequencytrap,
